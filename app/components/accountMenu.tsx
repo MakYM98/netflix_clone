@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 
 interface AccountMenuProps {
@@ -18,7 +17,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({
                 <div className='px-3 group/item flex flex-row gap-3 items-center w-full'>
                     <img src='/imgs/default-blue.png' alt='user' className='w-8 rounded-md'/>
                     <p className='text-white text-sm group-hover/item:underline'>
-                        Username
+                        Yeong Meng
                     </p>
                 </div>  
                 <hr className='bg-gray-600 border-0 h-px my-4'/>

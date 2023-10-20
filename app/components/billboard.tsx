@@ -3,9 +3,12 @@ import Image from 'next/image'
 import React, {useEffect, useState} from 'react'
 import movies from "../config/movies.json" assert { type: 'json' };; 
 import {AiOutlineInfoCircle} from 'react-icons/ai'
+import PlayBtn from './playBtn';
+import useInfoModalStore from '@/hooks/infoModalStore';
 
-const Billboard = () =>{
+const Billboard = (props:any) =>{
     const [data, setData] = useState<any>()
+    const { openModal } = useInfoModalStore();
 
     useEffect(()=>{
         setData(movies[Math.floor(Math.random() * movies.length)])
@@ -29,7 +32,8 @@ const Billboard = () =>{
                     {data?.description}
                 </p>
                 <div className='flex flex-row items-center mt-3 md:mt-4 gap-3'>
-                    <button className='bg-white text-white bg-opacity-30 rounded-md py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition'>
+                    <PlayBtn/> 
+                    <button onClick={()=>{openModal(data?.id)}} className='bg-white text-white bg-opacity-30 rounded-md py-1 md:py-2 px-2 md:px-4 w-auto text-xs lg:text-lg font-semibold flex flex-row items-center hover:bg-opacity-20 transition'>
                         <AiOutlineInfoCircle className="mr-1"/>
                         More Info
                     </button>
